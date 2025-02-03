@@ -1,0 +1,42 @@
+{
+  "name": "event-ticket-booking-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "npx tsc & ts-node-dev ./src/index.ts",
+    "build": "npx tsc -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timiFoxtrot/event-ticket-booking-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timiFoxtrot/event-ticket-booking-system/issues"
+  },
+  "homepage": "https://github.com/timiFoxtrot/event-ticket-booking-system#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "reflect-metadata": "^0.2.2",
+    "typedi": "^0.10.0",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.0",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  }
+}
