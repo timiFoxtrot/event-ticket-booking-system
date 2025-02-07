@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Service } from "typedi";
 import { EventService } from "../services/event.service";
+import logger from "../utils/logger";
 
 @Service()
 export class EventController {
@@ -14,6 +15,7 @@ export class EventController {
         .status(201)
         .json({ success: true, message: "Event created successfully", data });
     } catch (error: any) {
+      logger.error(`Error creating event: ${error.message}`);
       res.status(500).json({ success: false, message: error.message });
     }
   }
@@ -26,6 +28,7 @@ export class EventController {
         .status(201)
         .json({ success: true, message: "Ticket booked successfully", data });
     } catch (error: any) {
+      logger.error(`Error booking ticket: ${error.message}`);
       res.status(500).json({ success: false, message: error.message });
     }
   }
@@ -38,6 +41,7 @@ export class EventController {
         .status(200)
         .json({ success: true, message: "Booking cancelled successfully" });
     } catch (error: any) {
+      logger.error(`Failed to cancel: ${error.message}`);
       res.status(500).json({ success: false, message: error.message });
     }
   }
@@ -46,15 +50,13 @@ export class EventController {
     try {
       const { eventId } = req.params;
       const data = await this.eventService.getEventStatus(eventId);
-      res
-        .status(200)
-        .json({
-          success: true,
-          message: "Event status fetched successfully",
-          data,
-        });
+      res.status(200).json({
+        success: true,
+        message: "Event status fetched successfully",
+        data,
+      });
     } catch (error: any) {
-      res.status(500).json({success: false, message: error.message });
+      res.status(500).json({ success: false, message: error.message });
     }
   }
 }

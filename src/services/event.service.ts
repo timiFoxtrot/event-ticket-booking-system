@@ -75,8 +75,8 @@ export class EventService {
           lock: { mode: "pessimistic_write" },
         });
 
-        if(!event) {
-           throw new Error ("Event not found") 
+        if (!event) {
+          throw new Error("Event not found");
         }
 
         const wasConfirmed = booking.status === BookingStatus.CONFIRMED;
