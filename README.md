@@ -103,3 +103,6 @@ In addition, the application implements bonus features:
    ```bash
    npm run test:coverage
    ```
+
+## API Documentation
+    https://documenter.getpostman.com/view/25115132/2sAYX8J1KD

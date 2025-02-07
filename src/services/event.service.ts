@@ -119,4 +119,9 @@ export class EventService {
       waitingListCount,
     };
   }
+
+  async findEventByName(name: string): Promise<Event | null> {
+    const eventRepository = AppDataSource.getRepository(Event);
+    return await eventRepository.findOne({ where: { name } });
+  }
 }

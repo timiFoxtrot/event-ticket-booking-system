@@ -10,6 +10,16 @@ export class EventController {
   async initializeEvent(req: Request, res: Response): Promise<void> {
     try {
       const { name, totalTickets } = req.body;
+      
+      const existingEvent = await this.eventService.findEventByName(name);
+      if (existingEvent) {
+        res.status(409).json({
+          success: false,
+          message: "An event with the same name already exists",
+        });
+        return;
+      }
+
       const data = await this.eventService.initializeEvent(name, totalTickets);
       res
         .status(201)
